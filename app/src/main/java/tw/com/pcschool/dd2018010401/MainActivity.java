@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,19 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Click!!!", Toast.LENGTH_SHORT).show();
             }
         });
-        setContentView(btn);
+        Button btn2 = new Button(this);
+        btn2.setText("Click Me222");
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Click 222!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.addView(btn);
+        layout.addView(btn2);
+        setContentView(layout);
 
 
     }
