@@ -2,6 +2,7 @@ package tw.com.pcschool.dd2018010401;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -33,11 +34,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         LinearLayout layout = new LinearLayout(this);
+
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.addView(btn);
         layout.addView(btn2);
         setContentView(layout);
 
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+        int width = displayMetrics.widthPixels;
+        Toast.makeText(MainActivity.this, height + "," + width, Toast.LENGTH_SHORT).show();
 
     }
 }
